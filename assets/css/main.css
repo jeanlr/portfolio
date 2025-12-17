@@ -33,7 +33,7 @@
 }
 
 .dark-background {
-  --background-color: #6e6d6d;
+  --background-color: #0f1727;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --surface-color: #252525;
@@ -41,7 +41,7 @@
 }
 
 .accent-background {
-  --background-color: #6e6d6d;
+  --background-color: #0f1727;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --accent-color: #ffffff;
@@ -140,7 +140,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #6e6d6d;
+  --background-color: #0f1727;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
