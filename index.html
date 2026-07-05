@@ -1,210 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio de Projetos</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/jlr.png" rel="icon">
-
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jean Lima Rodovalho — Cientista de Dados | Engenheiro de Dados</title>
+  <meta name="description" content="Portfólio de Jean Lima Rodovalho, Cientista de Dados e Engenheiro de Dados. Soluções analíticas end-to-end com SQL, PySpark e Python.">
+  <link rel="icon" href="./assets/img/jlr.png">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Portfólio</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Início<br></a></li>
-          <li><a href="#about">Sobre Mim</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#top" class="navbar__logo" aria-label="Início">JLR<span class="navbar__logo-dot">.</span></a>
+      <nav class="navbar__nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#projetos">Publicações</a>
+        <a href="#contato">Contato</a>
       </nav>
-
+      <a href="#contato" class="btn btn--sm btn--primary navbar__cta">Vamos conversar</a>
     </div>
   </header>
 
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-img.jpg" alt="" data-aos="fade-in">
-
-      <div class="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-        <h2>Jean Lima Rodovalho</h2>
-        <p><span class="typed" data-typed-items=" Cientista de Dados "></span></p>
-      </div>
-    
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4">
-
-          <div class="col-md-6">
-            <div class="about-me">
-              <h4>Sobre mim</h4>
-              <p>
-                Sou Analista de Dados Sênior, com mais de 10 anos de experiência em inteligência de negócios e análise de Dados, atuando na transformação de dados em insights estratégicos que impulsionam receita.
-              </p>
-              <p>
-                Atuo em todo o ciclo de dados, desde extração, tratamento e modelagem com Python e SQL, passando por análises exploratórias, dashboards executivos e modelos preditivos. Atualmente, aprofundo minha atuação em Ciência de Dados e Machine Learning, com projetos práticos publicados neste portfólio, focados em problemas reais de negócio.
-              </p>
-            </div>
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__text reveal">
+          <p class="eyebrow">Dados brutos → decisões estratégicas</p>
+          <h1 class="hero__title">Jean Lima <span class="text-gradient">Rodovalho</span></h1>
+          <p class="hero__subtitle">Cientista de Dados &amp; Engenheiro de Dados</p>
+          <p class="hero__desc">Profissional com experiência em ciência e engenharia de dados, desenvolvendo soluções analíticas end-to-end utilizando <strong>SQL</strong>, <strong>PySpark</strong> e <strong>Python</strong> para transformar dados brutos em decisões estratégicas.</p>
+          <div class="hero__actions">
+            <a href="#projetos" class="btn btn--primary">Ver publicações</a>
+            <a href="https://github.com/jeanlr" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">GitHub ↗</a>
           </div>
-
-          <div class="col-md-6">
-            <div class="row justify-content-between gy-4">
-              <div class="col-lg-7 about-info">
-
-              <div id="contato" class="about-me">
-              <h4>Contatos</h4>
-                <p><strong>Nome: </strong> <span>Jean Lima Rodovalho</span></p>
-                <p><strong>Título: </strong> <span>Cientista de Dados | Analista de Dados Sênior</span></p>
-                <p><strong>Email: </strong> <span>jeanrodovalho16@gmail.com</span></p>
-                <p><strong>LinkedIn: </strong> <span>https://www.linkedin.com/in/jeanlimarodovalho/</span></p>
-              </div>
-              </div>
-              </div>
-            </div>
-          </div>
-
-          
-
-
-
         </div>
-
+        <div class="hero__visual reveal" aria-hidden="true">
+          <!-- Abstract geometric avatar: pipeline / node graph motif -->
+          <svg viewBox="0 0 320 320" class="pipeline-svg" role="img" aria-label="Ilustração abstrata de um pipeline de dados">
+            <defs>
+              <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb"/>
+                <stop offset="100%" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+            <circle cx="160" cy="160" r="150" class="pipeline-ring pipeline-ring--outer"/>
+            <circle cx="160" cy="160" r="110" class="pipeline-ring pipeline-ring--inner"/>
+            <g class="pipeline-lines">
+              <path d="M 60 200 Q 110 120 160 160 T 260 120" fill="none" stroke="url(#pipeGrad)" stroke-width="2.5"/>
+              <path d="M 70 100 Q 120 180 160 160 T 250 210" fill="none" stroke="url(#pipeGrad)" stroke-width="2" opacity="0.55"/>
+            </g>
+            <g class="pipeline-nodes">
+              <circle cx="60" cy="200" r="7" class="node"/>
+              <circle cx="160" cy="160" r="11" class="node node--core"/>
+              <circle cx="260" cy="120" r="7" class="node"/>
+              <circle cx="70" cy="100" r="6" class="node"/>
+              <circle cx="250" cy="210" r="6" class="node"/>
+              <circle cx="200" cy="70" r="5" class="node"/>
+              <circle cx="110" cy="250" r="5" class="node"/>
+            </g>
+          </svg>
+        </div>
       </div>
+      <div class="hero__scroll-cue reveal" aria-hidden="true">
+        <span>scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
 
-    </section><!-- /About Section -->
-
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio de Projetos</h2>
-        <p>Demonstração de soluções de problemas de negócio com as ferramentas e técnicas que domino</p>
-      </div><!-- End Section Title -->
-
+    <!-- ============ SOBRE ============ -->
+    <section id="sobre" class="section section--light">
       <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/classificacao.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Modelo de classificação para redução de Inadimplência</h4>
-                <p>Reduzindo a Inadimplência Bancária: Como a Inteligência de Dados Transforma a Concessão de Crédito</p>
-                <a href="assets/img/classificacao.png" title="Modelo de classificação" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="https://www.linkedin.com/pulse/reduzindo-inadimpl%C3%AAncia-banc%C3%A1ria-como-intelig%C3%AAncia-de-lima-rodovalho-3pgxf/?trackingId=UXM76s5mRdm6r6cErYssfQ%3D%3D" target="_blank" "More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/cluster.webp" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Modelo de clusterização para segmentação de personas</h4>
-                <p>Segmentação inteligente de personas para aumentar a conversão de vendas.</p>
-                <a href="assets/img/cluster.webp" title="Modelo de clusterização" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="https://medium.com/@jeanrodovalho16/segmentação-de-clientes-com-clustering-insights-estratégicos-para-crm-4177065a16fa" target="_blank" "More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/custos.webp" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Modelo de regressão para previsão de custos</h4>
-                <p>Previsão de custos com plano de saúde: Entendendo os fatores de risco em uma empresa</p>
-                <a href="assets/img/custos.webp" title="Modelo de regressão" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="https://medium.com/@jeanrodovalho16/previsão-de-custos-com-plano-de-saúde-entendendo-os-fatores-de-risco-em-uma-empresa-309a49a022a4" target="_blank" "More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-
-          </div><!-- End Portfolio Container -->
+        <div class="section-head reveal">
+          <p class="eyebrow eyebrow--dark">Sobre mim</p>
+          <h2 class="section-title">Transformando dados em decisões de negócio</h2>
+        </div>
+        <div class="about__body reveal">
+          <p>Profissional com experiência em ciência e engenharia de dados, desenvolvendo soluções analíticas end-to-end utilizando SQL, PySpark e Python para transformar dados brutos em decisões estratégicas. Atuo em toda a esteira analítica, da ingestão e modelagem de dados até a construção de modelos preditivos e a comunicação de insights para áreas de negócio.</p>
+          <p>Meu foco é entregar valor mensurável: pipelines de dados confiáveis, análises e modelos de machine learning aplicados a problemas reais de negócio.</p>
         </div>
       </div>
+    </section>
 
-    </section><!-- /Portfolio Section -->
+    <!-- ============ TECNOLOGIAS ============ -->
+    <section id="tecnologias" class="section section--muted">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow eyebrow--dark">Stack técnica</p>
+          <h2 class="section-title">Tecnologias &amp; ferramentas</h2>
+        </div>
+        <ul class="badge-grid reveal" id="badge-grid">
+          <!-- populated by script.js -->
+        </ul>
+      </div>
+    </section>
 
+    <!-- ============ PROJETOS / PUBLICAÇÕES ============ -->
+    <section id="projetos" class="section section--light">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow eyebrow--dark">Publicações</p>
+          <h2 class="section-title">Artigos &amp; Projetos</h2>
+          <p class="section-sub">Estudos de caso reais aplicando ciência de dados a problemas de negócio.</p>
+        </div>
 
+        <div class="project-grid">
+
+          <article class="card reveal">
+            <div class="card__body">
+              <h3 class="card__title">Reduzindo a Inadimplência Bancária com Inteligência de Dados</h3>
+              <p class="card__desc">Estudo de caso sobre como modelos analíticos e técnicas de credit scoring ajudam instituições financeiras a antecipar risco de inadimplência. O trabalho explora como cruzar variáveis comportamentais e cadastrais para calibrar políticas de crédito, reduzindo perdas sem travar a esteira de aprovação.</p>
+              <ul class="badge-list">
+                <li class="badge">SQL</li>
+                <li class="badge">Book de Variáveis</li>
+                <li class="badge">Python</li>
+                <li class="badge">LGBM</li>
+                <li class="badge">Reg.Logística</li>
+                <li class="badge">Credit Scoring</li>
+              </ul>
+            </div>
+            <div class="card__footer">
+              <a href="https://www.linkedin.com/pulse/reduzindo-inadimpl%C3%AAncia-banc%C3%A1ria-como-intelig%C3%AAncia-de-lima-rodovalho-3pgxf/" target="_blank" rel="noopener noreferrer" class="card__link card__link--primary">Ler artigo ↗</a>
+              <a href="https://github.com/jeanlr/pod-bank-application" target="_blank" rel="noopener noreferrer" class="card__link">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__body">
+              <h3 class="card__title">Segmentação de Clientes com Clustering: Insights Estratégicos para CRM</h3>
+              <p class="card__desc">Aplicação de algoritmos de machine learning não supervisionado (clusterização) para agrupar clientes por comportamento e características contratuais. O objetivo foi gerar segmentos acionáveis para campanhas de retenção e personalização, transformando dados brutos de CRM em estratégia comercial.</p>
+              <ul class="badge-list">
+                <li class="badge">Python</li>
+                <li class="badge">Scikit-learn</li>
+                <li class="badge">Clustering</li>
+                <li class="badge">Pandas</li>
+              </ul>
+            </div>
+            <div class="card__footer">
+              <a href="https://medium.com/@jeanrodovalho16/segmenta%C3%A7%C3%A3o-de-clientes-com-clustering-insights-estrat%C3%A9gicos-para-crm-4177065a16fa" target="_blank" rel="noopener noreferrer" class="card__link card__link--primary">Ler artigo ↗</a>
+              <a href="https://github.com/jeanlr/Clustering-CRM" target="_blank" rel="noopener noreferrer" class="card__link">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__body">
+              <h3 class="card__title">Previsão de Custos com Plano de Saúde: Entendendo os Fatores de Risco</h3>
+              <p class="card__desc">Modelagem estatística e preditiva para entender quais fatores (idade, IMC, tabagismo, dependentes) mais influenciam o custo de planos de saúde em uma empresa. A análise combinou correlação, regressão e visualização de dados para orientar políticas de benefícios mais eficientes.</p>
+              <ul class="badge-list">
+                <li class="badge">Python</li>
+                <li class="badge">Regressão Linear</li>
+                <li class="badge">Pandas</li>
+                <li class="badge">Data Viz</li>
+              </ul>
+            </div>
+            <div class="card__footer">
+              <a href="https://medium.com/@jeanrodovalho16/previs%C3%A3o-de-custos-com-plano-de-sa%C3%BAde-entendendo-os-fatores-de-risco-em-uma-empresa-309a49a022a4" target="_blank" rel="noopener noreferrer" class="card__link card__link--primary">Ler artigo ↗</a>
+              <a href="https://github.com/jeanlr/Health-Insurance" target="_blank" rel="noopener noreferrer" class="card__link">GitHub ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer id="footer" class="footer accent-background">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Jean Lima Rodovalho</strong> <span>All Rights Reserved</span></p>
+  <!-- ============ CONTATO & FOOTER ============ -->
+  <footer id="contato" class="footer">
+    <div class="container footer__inner">
+      <div class="footer__main reveal">
+        <h2 class="footer__title">Vamos construir algo orientado a dados?</h2>
+        <!-- <p class="footer__sub">Aberto a novas oportunidades e colaborações em ciência e engenharia de dados.</p> -->
+        <div class="footer__actions">
+          <a href="https://www.linkedin.com/in/jeanlimarodovalho/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">LinkedIn ↗</a>
+          <a href="https://github.com/jeanlr" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--ghost-dark">GitHub ↗</a>
+        </div>
       </div>
-      <div class="social-links d-flex justify-content-center">
-        <a href="https://www.linkedin.com/in/jeanlimarodovalho/" target="_blank"><i class="bi bi-linkedin"></i></a>
-      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Jean Lima Rodovalho. Todos os direitos reservados.</span>
+        <div class="footer__socials">
+          <a href="https://www.linkedin.com/in/jeanlimarodovalho/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/jeanlr" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </div>
     </div>
-
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
