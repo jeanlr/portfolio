@@ -7,76 +7,77 @@
   <meta name="description" content="Portfólio de Jean Lima Rodovalho, Cientista de Dados e Engenheiro de Dados. Soluções analíticas end-to-end com SQL, PySpark e Python.">
   <link rel="icon" href="./assets/img/jlr.png">
   <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
 </head>
 <body>
+
+  <!--
+    DIRECTION CONTRACT
+    THESIS: Um portfólio técnico minimalista dark/white inspirado no shadcn/ui que prova a credibilidade full-stack em dados pela própria qualidade do site.
+    OWN-WORLD: paleta slate/zinc, cards com bordas sutis e sombras baixas, raio 12–16px, tipografia system/Inter, alternância completa entre tema claro e escuro.
+    STORY: o visitante reconhece imediatamente um profissional de dados que domina a esteira completa; alterna entre temas, rola para ver stack e publicações reais e fecha com um convite direto.
+    FIRST VIEWPORT: navbar limpa com toggle de tema, foto do perfil, nome, função, proposta de valor e dois CTAs legíveis em qualquer tema.
+    FORM: shadcn/ui minimal dark/white técnico; substituição visual total, não polimento do layout anterior.
+  -->
 
   <!-- ============ NAVBAR ============ -->
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="#top" class="navbar__logo" aria-label="Início">JLR<span class="navbar__logo-dot">.</span></a>
-      <nav class="navbar__nav" aria-label="Navegação principal">
+      <nav class="navbar__nav" id="navbar-nav" aria-label="Navegação principal">
         <a href="#sobre">Sobre</a>
         <a href="#tecnologias">Tecnologias</a>
-        <a href="#projetos">Publicações</a>
+        <a href="#projetos">Projetos</a>
         <a href="#contato">Contato</a>
       </nav>
-      <a href="#contato" class="btn btn--sm btn--primary navbar__cta">Vamos conversar</a>
+      <div class="navbar__actions">
+        <a href="#contato" class="btn btn--sm btn--primary navbar__cta">Vamos conversar</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema" type="button">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <button class="navbar__menu" id="navbar-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar-nav">
+          <span class="navbar__menu-bar"></span>
+          <span class="navbar__menu-bar"></span>
+          <span class="navbar__menu-bar"></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="top">
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container hero__inner">
         <div class="hero__text reveal">
-          <p class="eyebrow">Dados brutos → decisões estratégicas</p>
-          <h1 class="hero__title">Jean Lima <span class="text-gradient">Rodovalho</span></h1>
+          <span class="eyebrow">Full-stack em dados</span>
+          <h1 class="hero__title">Jean Lima Rodovalho</h1>
           <p class="hero__subtitle">Cientista de Dados &amp; Engenheiro de Dados</p>
-          <p class="hero__desc">Profissional com experiência em ciência e engenharia de dados, desenvolvendo soluções analíticas end-to-end utilizando <strong>SQL</strong>, <strong>PySpark</strong> e <strong>Python</strong> para transformar dados brutos em decisões estratégicas.</p>
+          <p class="hero__desc">Da engenharia de dados ao machine learning: construo pipelines confiáveis, feature stores e modelos que transformam dados brutos em decisões estratégicas.</p>
           <div class="hero__actions">
             <a href="#projetos" class="btn btn--primary">Ver publicações</a>
-            <a href="https://github.com/jeanlr" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">GitHub ↗</a>
+            <a href="https://github.com/jeanlr" target="_blank" rel="noopener noreferrer" class="btn btn--outline">GitHub ↗</a>
           </div>
         </div>
         <div class="hero__visual reveal" aria-hidden="true">
-          <!-- Abstract geometric avatar: pipeline / node graph motif -->
-          <svg viewBox="0 0 320 320" class="pipeline-svg" role="img" aria-label="Ilustração abstrata de um pipeline de dados">
-            <defs>
-              <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2563eb"/>
-                <stop offset="100%" stop-color="#38bdf8"/>
-              </linearGradient>
-            </defs>
-            <circle cx="160" cy="160" r="150" class="pipeline-ring pipeline-ring--outer"/>
-            <circle cx="160" cy="160" r="110" class="pipeline-ring pipeline-ring--inner"/>
-            <g class="pipeline-lines">
-              <path d="M 60 200 Q 110 120 160 160 T 260 120" fill="none" stroke="url(#pipeGrad)" stroke-width="2.5"/>
-              <path d="M 70 100 Q 120 180 160 160 T 250 210" fill="none" stroke="url(#pipeGrad)" stroke-width="2" opacity="0.55"/>
-            </g>
-            <g class="pipeline-nodes">
-              <circle cx="60" cy="200" r="7" class="node"/>
-              <circle cx="160" cy="160" r="11" class="node node--core"/>
-              <circle cx="260" cy="120" r="7" class="node"/>
-              <circle cx="70" cy="100" r="6" class="node"/>
-              <circle cx="250" cy="210" r="6" class="node"/>
-              <circle cx="200" cy="70" r="5" class="node"/>
-              <circle cx="110" cy="250" r="5" class="node"/>
-            </g>
-          </svg>
+          <div class="hero__photo-frame">
+            <img src="./assets/img/hero-img.jpg" alt="Foto de Jean Lima Rodovalho" class="hero__photo" width="420" height="420">
+          </div>
         </div>
-      </div>
-      <div class="hero__scroll-cue reveal" aria-hidden="true">
-        <span>scroll</span>
-        <div class="hero__scroll-line"></div>
       </div>
     </section>
 
     <!-- ============ SOBRE ============ -->
-    <section id="sobre" class="section section--light">
+    <section id="sobre" class="section">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow eyebrow--dark">Sobre mim</p>
+          <span class="eyebrow eyebrow--muted">Sobre mim</span>
           <h2 class="section-title">Transformando dados em decisões de negócio</h2>
         </div>
         <div class="about__body reveal">
@@ -87,11 +88,12 @@
     </section>
 
     <!-- ============ TECNOLOGIAS ============ -->
-    <section id="tecnologias" class="section section--muted">
+    <section id="tecnologias" class="section">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow eyebrow--dark">Stack técnica</p>
+          <span class="eyebrow eyebrow--muted">Stack técnica</span>
           <h2 class="section-title">Tecnologias &amp; ferramentas</h2>
+          <p class="section-sub">O que uso para mover, modelar e extrair valor dos dados.</p>
         </div>
         <ul class="badge-grid reveal" id="badge-grid">
           <!-- populated by script.js -->
@@ -100,10 +102,10 @@
     </section>
 
     <!-- ============ PROJETOS / PUBLICAÇÕES ============ -->
-    <section id="projetos" class="section section--light">
+    <section id="projetos" class="section">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow eyebrow--dark">Publicações</p>
+          <span class="eyebrow eyebrow--muted">Projetos</span>
           <h2 class="section-title">Artigos &amp; Projetos</h2>
           <p class="section-sub">Estudos de caso reais aplicando ciência de dados a problemas de negócio.</p>
         </div>
@@ -111,16 +113,19 @@
         <div class="project-grid">
 
           <article class="card reveal">
+            <div class="card__media">
+              <img src="./assets/img/classificacao.png" alt="" loading="lazy" width="800" height="450">
+            </div>
             <div class="card__body">
               <h3 class="card__title">Reduzindo a Inadimplência Bancária com Inteligência de Dados</h3>
               <p class="card__desc">Estudo de caso sobre como modelos analíticos e técnicas de credit scoring ajudam instituições financeiras a antecipar risco de inadimplência. O trabalho explora como cruzar variáveis comportamentais e cadastrais para calibrar políticas de crédito, reduzindo perdas sem travar a esteira de aprovação.</p>
               <ul class="badge-list">
-                <li class="badge">SQL</li>
-                <li class="badge">Book de Variáveis</li>
-                <li class="badge">Python</li>
-                <li class="badge">LGBM</li>
-                <li class="badge">Reg.Logística</li>
-                <li class="badge">Credit Scoring</li>
+                <li class="badge badge--small">SQL</li>
+                <li class="badge badge--small">Book de Variáveis</li>
+                <li class="badge badge--small">Python</li>
+                <li class="badge badge--small">LGBM</li>
+                <li class="badge badge--small">Reg.Logística</li>
+                <li class="badge badge--small">Credit Scoring</li>
               </ul>
             </div>
             <div class="card__footer">
@@ -130,14 +135,17 @@
           </article>
 
           <article class="card reveal">
+            <div class="card__media">
+              <img src="./assets/img/cluster.webp" alt="" loading="lazy" width="800" height="450">
+            </div>
             <div class="card__body">
               <h3 class="card__title">Segmentação de Clientes com Clustering: Insights Estratégicos para CRM</h3>
               <p class="card__desc">Aplicação de algoritmos de machine learning não supervisionado (clusterização) para agrupar clientes por comportamento e características contratuais. O objetivo foi gerar segmentos acionáveis para campanhas de retenção e personalização, transformando dados brutos de CRM em estratégia comercial.</p>
               <ul class="badge-list">
-                <li class="badge">Python</li>
-                <li class="badge">Scikit-learn</li>
-                <li class="badge">Clustering</li>
-                <li class="badge">Pandas</li>
+                <li class="badge badge--small">Python</li>
+                <li class="badge badge--small">Scikit-learn</li>
+                <li class="badge badge--small">Clustering</li>
+                <li class="badge badge--small">Pandas</li>
               </ul>
             </div>
             <div class="card__footer">
@@ -147,14 +155,17 @@
           </article>
 
           <article class="card reveal">
+            <div class="card__media">
+              <img src="./assets/img/custos.webp" alt="" loading="lazy" width="800" height="450">
+            </div>
             <div class="card__body">
               <h3 class="card__title">Previsão de Custos com Plano de Saúde: Entendendo os Fatores de Risco</h3>
               <p class="card__desc">Modelagem estatística e preditiva para entender quais fatores (idade, IMC, tabagismo, dependentes) mais influenciam o custo de planos de saúde em uma empresa. A análise combinou correlação, regressão e visualização de dados para orientar políticas de benefícios mais eficientes.</p>
               <ul class="badge-list">
-                <li class="badge">Python</li>
-                <li class="badge">Regressão Linear</li>
-                <li class="badge">Pandas</li>
-                <li class="badge">Data Viz</li>
+                <li class="badge badge--small">Python</li>
+                <li class="badge badge--small">Regressão Linear</li>
+                <li class="badge badge--small">Pandas</li>
+                <li class="badge badge--small">Data Viz</li>
               </ul>
             </div>
             <div class="card__footer">
@@ -173,10 +184,10 @@
     <div class="container footer__inner">
       <div class="footer__main reveal">
         <h2 class="footer__title">Vamos construir algo orientado a dados?</h2>
-        <!-- <p class="footer__sub">Aberto a novas oportunidades e colaborações em ciência e engenharia de dados.</p> -->
+        <p class="footer__sub">Aberto a novas oportunidades e colaborações em ciência e engenharia de dados.</p>
         <div class="footer__actions">
           <a href="https://www.linkedin.com/in/jeanlimarodovalho/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">LinkedIn ↗</a>
-          <a href="https://github.com/jeanlr" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--ghost-dark">GitHub ↗</a>
+          <a href="https://github.com/jeanlr" target="_blank" rel="noopener noreferrer" class="btn btn--outline">GitHub ↗</a>
         </div>
       </div>
       <div class="footer__bottom">

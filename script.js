@@ -3,6 +3,28 @@
    ========================================================================== */
 
 // -------------------------------------------------------------------------
+// Alternância de tema (claro/escuro)
+// -------------------------------------------------------------------------
+const themeToggle = document.getElementById('theme-toggle');
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+}
+
+function getCurrentTheme() {
+  return document.documentElement.getAttribute('data-theme') || 'light';
+}
+
+function toggleTheme() {
+  setTheme(getCurrentTheme() === 'dark' ? 'light' : 'dark');
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', toggleTheme);
+}
+
+// -------------------------------------------------------------------------
 // Ano dinâmico no footer
 // -------------------------------------------------------------------------
 const yearEl = document.getElementById('year');
@@ -61,17 +83,43 @@ if ('IntersectionObserver' in window && revealTargets.length) {
 }
 
 // -------------------------------------------------------------------------
-// Navbar: leve sombra ao rolar a página
+// Navbar: estado ao rolar e menu mobile
 // -------------------------------------------------------------------------
 const navbar = document.getElementById('navbar');
+const navbarMenu = document.getElementById('navbar-menu');
+const navbarNav = document.getElementById('navbar-nav');
+
 if (navbar) {
   const onScroll = () => {
-    if (window.scrollY > 8) {
-      navbar.style.boxShadow = '0 1px 0 hsla(222, 47%, 11%, 0.06)';
-    } else {
-      navbar.style.boxShadow = 'none';
-    }
+    navbar.classList.toggle('is-scrolled', window.scrollY > 8);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+}
+
+if (navbarMenu && navbarNav) {
+  const toggleMenu = () => {
+    const isOpen = navbarNav.classList.toggle('is-open');
+    navbarMenu.setAttribute('aria-expanded', String(isOpen));
+  };
+
+  navbarMenu.addEventListener('click', toggleMenu);
+
+  navbarNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navbarNav.classList.remove('is-open');
+      navbarMenu.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (
+      navbarNav.classList.contains('is-open') &&
+      !navbarNav.contains(event.target) &&
+      !navbarMenu.contains(event.target)
+    ) {
+      navbarNav.classList.remove('is-open');
+      navbarMenu.setAttribute('aria-expanded', 'false');
+    }
+  });
 }
