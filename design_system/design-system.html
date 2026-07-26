@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Design System | DevAuthored</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;900&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#07006c",
+                      "surface-container-lowest": "#0e0e10",
+                      "surface-tint": "#c0c1ff",
+                      "outline": "#908fa0",
+                      "on-tertiary-container": "#1f2a3c",
+                      "tertiary": "#bcc7de",
+                      "surface-bright": "#39393b",
+                      "on-background": "#e5e1e4",
+                      "on-secondary": "#233143",
+                      "secondary-fixed-dim": "#b9c8de",
+                      "warning": "#fbbf24",
+                      "surface": "#09090b",
+                      "on-secondary-container": "#a7b6cc",
+                      "secondary-fixed": "#d4e4fa",
+                      "outline-variant": "#464554",
+                      "tertiary-fixed": "#d8e3fb",
+                      "secondary-container": "#39485a",
+                      "on-secondary-fixed": "#0d1c2d",
+                      "surface-dim": "#131315",
+                      "on-error-container": "#ffdad6",
+                      "surface-overlay": "#1c1c1f",
+                      "primary": "#c0c1ff",
+                      "on-tertiary-fixed-variant": "#3c475a",
+                      "surface-container-low": "#1c1b1d",
+                      "surface-variant": "#353437",
+                      "on-surface-variant": "#c7c4d7",
+                      "background": "#131315",
+                      "on-primary-container": "#0d0096",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#313032",
+                      "error": "#f87171",
+                      "tertiary-container": "#8691a7",
+                      "on-secondary-fixed-variant": "#39485a",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "indigo-accent": "#6366f1",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "primary-fixed": "#e1e0ff",
+                      "on-tertiary": "#263143",
+                      "inverse-primary": "#494bd6",
+                      "on-tertiary-fixed": "#111c2d",
+                      "surface-container-highest": "#353437",
+                      "border-muted": "#27272a",
+                      "surface-container": "#201f22",
+                      "secondary": "#b9c8de",
+                      "tertiary-fixed-dim": "#bcc7de",
+                      "on-surface": "#e5e1e4",
+                      "inverse-surface": "#e5e1e4",
+                      "on-primary": "#1000a9",
+                      "primary-container": "#8083ff",
+                      "success": "#4ade80",
+                      "on-error": "#690005",
+                      "surface-raised": "#121214",
+                      "surface-container-high": "#2a2a2c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "8px",
+                      "xl": "12px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-padding-desktop": "1.5rem",
+                      "base": "4px",
+                      "stack-sm": "0.5rem",
+                      "stack-md": "1rem",
+                      "gutter": "1rem",
+                      "card-gap": "1rem",
+                      "container-padding-mobile": "1rem"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "code-sm": ["JetBrains Mono"],
+                      "body-muted": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-base": ["Inter"],
+                      "label-xs": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "code-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-muted": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "label-xs": ["11px", {"lineHeight": "14px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #09090b;
+            color: #e5e1e4;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .border-apex {
+            border: 1px solid #27272a;
+        }
+        .hover-apex:hover {
+            border-color: #4ade80; /* Emerald accent */
+        }
+        .text-emerald {
+            color: #4ade80;
+        }
+        .bg-emerald {
+            background-color: #4ade80;
+        }
+        .nav-blur {
+            backdrop-filter: blur(8px);
+        }
+        .shell-frame {
+            contain: layout;
+            transform: translateZ(0);
+        }
+        .doc-anchor {
+            scroll-margin-top: 4rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- Documentation Top Nav -->
+<nav class="fixed top-0 w-full z-[60] border-b border-outline-variant/30 bg-surface/95 nav-blur">
+  <div class="max-w-[1440px] mx-auto px-6 h-14 flex items-center gap-5 overflow-x-auto">
+    <a href="#section-0" class="font-headline-md text-headline-md text-emerald font-bold whitespace-nowrap">DS</a>
+    <span class="w-px h-5 bg-outline-variant/40"></span>
+    <a href="#section-0" class="font-label-sm text-label-sm text-emerald border-b-2 border-emerald pb-0.5 whitespace-nowrap">Shell</a>
+    <a href="#section-1" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">1. Typography</a>
+    <a href="#section-2" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">2. Colors</a>
+    <a href="#section-3" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">3. Navigation</a>
+    <a href="#section-6" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">6. Components</a>
+    <a href="#section-7" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">7. Layout</a>
+    <a href="#section-8" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">8. Motion</a>
+    <a href="#section-9" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">9. Icons</a>
+  </div>
+</nav>
+
+<main class="pt-14">
+
+<!-- ============================================================ -->
+<!-- SECTION 0: Application Shell (Clone Exato)                   -->
+<!-- ============================================================ -->
+<section id="section-0" class="doc-anchor max-w-[1440px] mx-auto px-6 py-12">
+  <div class="mb-10">
+    <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Section 0</span>
+    <h2 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Application Shell (Clone Exato)</h2>
+    <p class="font-body-muted text-body-muted text-on-surface-variant max-w-2xl">Direct clone of the original layout: fixed top bar, hero, filter, card grid, footer. Same HTML structure, same classes, same proportions. Content swapped to reference this Design System.</p>
+  </div>
+
+  <div class="shell-frame border border-outline-variant/40 rounded-xl overflow-hidden">
+    <!-- Original TopNavBar (cloned) -->
+    <header class="fixed top-0 w-full z-50 border-b border-outline-variant/30 bg-surface">
+      <div class="max-w-[1440px] mx-auto px-6 flex justify-between items-center h-16">
+        <div class="font-headline-md text-headline-md font-bold text-emerald">DevAuthored</div>
+        <nav class="hidden md:flex gap-8 items-center">
+          <a class="font-label-md text-label-md text-emerald border-b-2 border-emerald pb-1" href="#">Portfolio</a>
+          <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Blog</a>
+          <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">About</a>
+          <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Dashboard</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <button class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95">search</button>
+          <button class="bg-emerald text-surface px-5 py-2 rounded-lg font-label-md text-label-md cursor-pointer active:scale-95 transition-all duration-150">Hire Me</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Original main (cloned, content swapped) -->
+    <main class="app-shell pt-24 pb-20 max-w-[1440px] mx-auto px-6">
+      <!-- Hero Section -->
+      <section class="mb-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="max-w-2xl">
+            <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Design System</span>
+            <h1 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">A faithful extraction of tokens, components, and motion primitives.</h1>
+            <p class="font-body-base text-body-base text-on-surface-variant max-w-lg">
+              Every visual element, state, and interaction documented using the original classes, animations, and timing functions. No redesigns, no approximations.
+            </p>
+          </div>
+          <div class="hidden lg:flex gap-12 border-l border-border-muted pl-12 h-fit mb-2">
+            <div>
+              <div class="font-headline-md text-headline-md text-emerald">09</div>
+              <div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Sections</div>
+            </div>
+            <div>
+              <div class="font-headline-md text-headline-md text-emerald">60+</div>
+              <div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Tokens</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filter Bar (repurposed as Section Quick Filter) -->
+      <section class="mb-10 flex flex-wrap items-center gap-3">
+        <button class="px-6 py-2 rounded-lg bg-emerald text-surface font-label-sm text-label-sm font-bold border-apex border-emerald cursor-pointer transition-all">All Sections</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Typography</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Colors</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Components</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Layout</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Motion</button>
+      </section>
+
+      <!-- Section Preview Grid (6 cards, same structure) -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 — Typography -->
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, professional UI screenshot of a high-performance analytics dashboard for a financial platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBtnhK5QNZ77W_fB0C1bazhFEt_DM89vJ3YRcVX_PgVoX3VoEIPuVRkNR6QjcQgmBOyJ0yJC71jSeYctrCf8lvCL-VExr1kjkrBSMB2GBy6RFrThHxrZu2YaL2r0r_d3ZZJ4AsgrN-WH3M11oAhcRa9rIRUFdoszD5Ri_C2vYLucz7BkZFIfLMEGpBuhsQxht5YILv6drC1H9MmNcu7DDmHSLJ7__ZH0AGyXN01o4IYxIHjYivouyGTIxd5C3tshyDkegs3clS_UY">
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">§1 Typography</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Typography Scale</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              Hierarchy of type styles from page title to caption, including the monospace code face.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Hanken Grotesk</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Inter</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">JetBrains Mono</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#section-1">
+              View Section <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <!-- Card 2 — Colors -->
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Documented surface tokens, semantic colors, borders, and shadows in dark theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8oUxyk3isG4Gro7ZNF9fR092M2oPjFJrAvXLHomKNNOUcsqKjLhaRK_TLgc65MSmC_flxqm_2lY01T_pUeDa7iFT7RrQk-aGO2LnovSj0B1tJvBbxpmCiyxaeqeNC-kTQl6VaTkynMaASFRRdOVrXKJD2A1aohfsSjwAxXfRpSK0xz-g6KZkBhMe2MPVbOlZZ7Ph2sWNU77yGVpHGPnES7CZjUEheltBT1LZDPL35gXkcFYCXA7srD2DT1-mTDakTzNPqP6VoVL4">
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">§2 Colors</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Color Tokens &amp; Surfaces</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              Interface backgrounds, semantic states, borders, shadows and overlays as defined in the original.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">surface-*</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">on-*</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">border-muted</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#section-2">
+              View Section <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <!-- Card 3 — Navigation -->
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Top bar, filter bar, and footer link patterns extracted from source." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX2qgPy1BmTq6XihaoJy76lupfIepi7iIkwSO-3nrt2xr25uEagnGJjSi9_6QE2MYFRz0LIXEOg-R6loSiLFJW7v68cI9HwZjhf98uiSpdfLd24ThMdvrLM-HDBAQj3qvgSOydTo3CaxfUeBGZwYcoCD2qIHS7CqPFhe3gHl-oNVkrcjdqbu91ND397LwDYgRO8eElbItVUq70RJRCgDkfpjsn4beechhw748mBavwqjUh0m3KI6XT8vj2kW1OeAlyR-K8bdEYkSE">
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">§3 Navigation</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Navigation Primitives</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              Top bar, filter bar, footer links — every state and pattern from the source interface.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">fixed-nav</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">filter-bar</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">footer-link</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#section-3">
+              View Section <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <!-- Card 4 — Components -->
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Buttons, badges, tags, cards and icon links with all interactive states." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeCgSpRsEfpJ1Gy_RneQ3fNiB8_cYk7VrsSOe4IlIXgZE6Txlvowh_0hUXZIgpyJds2bnxlyRbxULfKHiJFIQf003X2KgUnqYBzs16dCOgWduJk_tBbafrom4NiZ1VrKbNjjOiq5Xf2g1qkwIZPgXoKD1htINz_zeDfvQb3af47E8tEDy12aaXvFy6JWKs2Ts1HoYVrPo87TH7TOhjjceHg6L2JlrAb-wk5Mbp9VdpE5TxYD2NjfWSycr0INeCjAW8SXdECNrFjyw">
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">§6 Components</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">UI Components</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              Buttons, badges, tags, cards and icon links with every state documented side by side.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">button</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">badge</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">card</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#section-6">
+              View Section <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <!-- Card 5 — Layout -->
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Container widths, grid systems, section spacing, and responsive breakpoints." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtEGj_gqfxgymOXskIu3dkH9X2a35cLnGNG4EmTTUw0gfIJ27ovTATd60GmMQjCKJxETrGrcUfNZlCdlXalKqfTew3a2OTn78ADinOlzX__z7QczPvYDF_ItVaeNNximXnYCuRtsuDNnWikeuU9SQtxmsXbrjtt0Mkh9EY_ZdjPLul3pR5bUuc7wNHERvoxj7O5ZhiT-dvonm8MEYcyQbX0zBpi4Mw1HSmWmlDkhkVh5NP5k1fW07QSuT9SNCIUPv8arxCIBK_NTU">
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">§7 Layout</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Layout &amp; Spacing</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              Container widths, grid systems, section spacing and responsive breakpoints from the source.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">1440px</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">grid-cols</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">gap-6</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#section-7">
+              View Section <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <!-- Card 6 — Motion -->
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Transitions, hover states, scroll effects and JavaScript micro-interactions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXjjC8qYbEDjzw30PJNBa5Ebx9hPrCQ0ZVI4cR_cQGqSotZV8CKkbv4BBY1AaZHIIyO3WsYqkcdPOOmfjyTSN_pn04jqfc0KZ1NDR3JhP_IxeGx-6mUzUZ-V-bB146Rl3qAwntEkoOqJ9sVjgTZH7Q-W7_OpYbVF8snfY20LcxGb9CmkhWQqJOhA0a2nHDXYjZMCU9gEheKfuho2cqqTkEEjjvcV-vxBJHm9O9b1_NXn7iiQaL-ZPuunx3ZWkwXbN4IYzAYg3I860">
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">§8 Motion</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Motion &amp; Interaction</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              Transitions, hover states, scroll effects and JavaScript micro-interactions from the source.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">transition-all</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">active:scale-95</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">animate-pulse</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#section-8">
+              View Section <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pagination / Load More (cloned) -->
+      <section class="mt-16 flex flex-col items-center gap-4">
+        <button class="px-8 py-3 rounded-lg bg-surface-container border-apex text-on-surface font-headline-md text-headline-md hover:border-emerald hover:text-emerald transition-all active:scale-95">
+          Load More Sections
+        </button>
+        <p class="font-body-muted text-body-muted text-on-surface-variant">Showing 6 of 9 documentation sections</p>
+      </section>
+    </main>
+
+    <!-- Original Footer (cloned) -->
+    <footer class="w-full py-20 bg-surface-container-lowest border-t border-outline-variant/20">
+      <div class="max-w-[1440px] mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12">
+        <div class="max-w-xs">
+          <div class="font-headline-sm text-headline-sm text-on-surface font-bold mb-4">DevAuthored</div>
+          <p class="font-body-muted text-body-muted text-on-surface-variant mb-6">
+            Engineering precise digital artifacts through layered flatness and technical integrity.
+          </p>
+          <div class="flex gap-4">
+            <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">alternate_email</a>
+            <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">code</a>
+            <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">monitoring</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-24">
+          <div class="flex flex-col gap-4">
+            <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Navigation</span>
+            <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Portfolio</a>
+            <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Blog</a>
+            <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Resources</span>
+            <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">RSS Feed</a>
+            <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Source Code</a>
+            <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Legal</span>
+            <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+            <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-[1440px] mx-auto px-6 mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-body-muted text-body-muted text-on-surface-variant/60">© 2024 DevAuthored. Built for performance.</p>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+          <span class="font-code-sm text-code-sm text-on-surface-variant/60 uppercase">Operational Status: Nominal</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: Tipografia                                        -->
+<!-- ============================================================ -->
+<section id="section-1" class="doc-anchor max-w-[1440px] mx-auto px-6 py-12 border-t border-border-muted/40">
+  <div class="mb-10">
+    <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Section 1</span>
+    <h2 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Typography</h2>
+    <p class="font-body-muted text-body-muted text-on-surface-variant max-w-2xl">Hierarchy of type styles extracted from the source. Every entry uses the exact Tailwind classes and token names from the original config.</p>
+  </div>
+
+  <div class="border-apex rounded-xl overflow-hidden">
+    <!-- Headline LG -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 border-b border-border-muted hover-apex transition-colors">
+      <div class="md:col-span-3">
+        <div class="font-label-xs text-label-xs text-emerald uppercase tracking-widest">Headline Large</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant mt-1">font-headline-lg text-headline-lg</div>
+      </div>
+      <div class="md:col-span-7">
+        <h1 class="font-headline-lg text-headline-lg">Engineering precise digital artifacts</h1>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">24px / 32px</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">md: 48 / 56</div>
+      </div>
+    </div>
+    <!-- Headline LG Mobile -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 border-b border-border-muted hover-apex transition-colors">
+      <div class="md:col-span-3">
+        <div class="font-label-xs text-label-xs text-emerald uppercase tracking-widest">Headline Large (Mobile)</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant mt-1">font-headline-lg-mobile text-headline-lg-mobile</div>
+      </div>
+      <div class="md:col-span-7">
+        <h1 class="font-headline-lg-mobile text-headline-lg-mobile">Mobile-first headline scale</h1>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">20px / 28px</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">—</div>
+      </div>
+    </div>
+    <!-- Headline MD -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 border-b border-border-muted hover-apex transition-colors">
+      <div class="md:col-span-3">
+        <div class="font-label-xs text-label-xs text-emerald uppercase tracking-widest">Headline Medium</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant mt-1">font-headline-md text-headline-md</div>
+      </div>
+      <div class="md:col-span-7">
+        <h3 class="font-headline-md text-headline-md">Card title and section sub-heading</h3>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">18px / 24px</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">wght 600</div>
+      </div>
+    </div>
+    <!-- Body Base -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 border-b border-border-muted hover-apex transition-colors">
+      <div class="md:col-span-3">
+        <div class="font-label-xs text-label-xs text-emerald uppercase tracking-widest">Body Base</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant mt-1">font-body-base text-body-base</div>
+      </div>
+      <div class="md:col-span-7">
+        <p class="font-body-base text-body-base">Hero intro paragraph and primary body copy used above the fold.</p>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">14px / 20px</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">wght 500</div>
+      </div>
+    </div>
+    <!-- Body Muted -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 border-b border-border-muted hover-apex transition-colors">
+      <div class="md:col-span-3">
+        <div class="font-label-xs text-label-xs text-emerald uppercase tracking-widest">Body Muted</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant mt-1">font-body-muted text-body-muted</div>
+      </div>
+      <div class="md:col-span-7">
+        <p class="font-body-muted text-body-muted text-on-surface-variant">Card description and secondary body copy in muted tone.</p>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">14px / 20px</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">wght 400</div>
+      </div>
+    </div>
+    <!-- Label SM -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 border-b border-border-muted hover-apex transition-colors">
+      <div class="md:col-span-3">
+        <div class="font-label-xs text-label-xs text-emerald uppercase tracking-widest">Label Small</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant mt-1">font-label-sm text-label-sm</div>
+      </div>
+      <div class="md:col-span-7">
+        <span class="font-label-sm text-label-sm">Filter buttons and inline action labels</span>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">12px / 16px</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">wght 500</div>
+      </div>
+    </div>
+    <!-- Label XS -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 border-b border-border-muted hover-apex transition-colors">
+      <div class="md:col-span-3">
+        <div class="font-label-xs text-label-xs text-emerald uppercase tracking-widest">Label Extra Small</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant mt-1">font-label-xs text-label-xs</div>
+      </div>
+      <div class="md:col-span-7">
+        <span class="font-label-xs text-label-xs uppercase tracking-widest">Footer column headers and stat labels</span>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">11px / 14px</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">wght 600</div>
+      </div>
+    </div>
+    <!-- Code SM -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 hover-apex transition-colors">
+      <div class="md:col-span-3">
+        <div class="font-label-xs text-label-xs text-emerald uppercase tracking-widest">Code Small (Monospace)</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant mt-1">font-code-sm text-code-sm</div>
+      </div>
+      <div class="md:col-span-7">
+        <code class="font-code-sm text-code-sm text-emerald">eyebrow:tag:status-pill</code>
+        <div class="mt-2 font-code-sm text-code-sm text-on-surface-variant">The eyebrow, tags and status pill monospace face.</div>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">12px / 16px</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">JetBrains Mono</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: Cores, Superfícies e Estados Semânticos          -->
+<!-- ============================================================ -->
+<section id="section-2" class="doc-anchor max-w-[1440px] mx-auto px-6 py-12 border-t border-border-muted/40">
+  <div class="mb-10">
+    <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Section 2</span>
+    <h2 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Colors, Surfaces &amp; Semantic States</h2>
+    <p class="font-body-muted text-body-muted text-on-surface-variant max-w-2xl">Every color, surface level, border, and semantic state used in the source. Dark theme only — the original ships with <code class="font-code-sm text-code-sm text-emerald">html.dark</code>.</p>
+  </div>
+
+  <!-- 2.1 Surfaces -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">2.1 — Interface Surfaces</span>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#09090b · body</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-raised"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-raised</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#121214 · card</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-container"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-container</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#201f22 · tag</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-container-low"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-container-low</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#1c1b1d · filter</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-container-high"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-container-high</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#2a2a2c · —</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-container-highest"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-container-highest</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#353437 · —</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-container-lowest"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-container-lowest</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#0e0e10 · footer</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-bright"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-bright</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#39393b · —</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-dim"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-dim</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#131315 · —</div>
+      </div>
+      <div>
+        <div class="h-20 rounded-lg border border-outline-variant/40 bg-surface-overlay"></div>
+        <div class="mt-2 font-code-sm text-code-sm">surface-overlay</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#1c1c1f · —</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2.2 Semantic States -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">2.2 — Semantic States</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Success -->
+      <div class="bg-surface-raised border-apex rounded-xl p-5">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-3 h-3 rounded-full bg-emerald"></span>
+          <span class="font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Success</span>
+        </div>
+        <div class="font-code-sm text-code-sm mb-3">emerald #4ade80 (custom .bg-emerald / .text-emerald)</div>
+        <!-- Real pattern 1: active filter button -->
+        <div class="mb-3">
+          <button class="px-6 py-2 rounded-lg bg-emerald text-surface font-label-sm text-label-sm font-bold border-apex border-emerald cursor-pointer transition-all">Active filter</button>
+        </div>
+        <!-- Real pattern 2: status dot (from footer) -->
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+          <span class="font-code-sm text-code-sm text-on-surface-variant uppercase">Status: Nominal</span>
+        </div>
+        <!-- Real pattern 3: hover accent -->
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">.hover-apex → border-emerald · hover:text-emerald on links</div>
+      </div>
+      <!-- Defined tokens (not applied in source UI) -->
+      <div class="bg-surface-raised border-apex rounded-xl p-5">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-3 h-3 rounded-full bg-warning"></span>
+          <span class="font-label-sm text-label-sm text-warning uppercase tracking-widest font-bold">Warning</span>
+        </div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">warning #fbbf24</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/40 mt-2">defined in config · not used in source UI</div>
+      </div>
+      <!-- Defined tokens (not applied in source UI) -->
+      <div class="bg-surface-raised border-apex rounded-xl p-5">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-3 h-3 rounded-full bg-error"></span>
+          <span class="font-label-sm text-label-sm text-error uppercase tracking-widest font-bold">Error</span>
+        </div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">error #f87171</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/40 mt-2">defined in config · not used in source UI</div>
+      </div>
+      <!-- Defined tokens (not applied in source UI) -->
+      <div class="bg-surface-raised border-apex rounded-xl p-5">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-3 h-3 rounded-full bg-indigo-accent"></span>
+          <span class="font-label-sm text-label-sm text-indigo-accent uppercase tracking-widest font-bold">Info / Indigo</span>
+        </div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">indigo-accent #6366f1</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/40 mt-2">defined in config · not used in source UI</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2.3 Borders & Dividers -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">2.3 — Borders &amp; Dividers</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-surface-raised border border-border-muted rounded-xl p-5">
+        <div class="font-code-sm text-code-sm text-emerald">border-muted #27272a</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-3">.border-apex · 1px solid</div>
+        <div class="h-12 border-t border-border-muted"></div>
+      </div>
+      <div class="bg-surface-raised border border-outline-variant/30 rounded-xl p-5">
+        <div class="font-code-sm text-code-sm text-emerald">outline-variant #464554</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-3">border-outline-variant/30, /20, /10 (opacity variants)</div>
+        <div class="h-12 border-t border-outline-variant/30"></div>
+      </div>
+      <div class="bg-surface-raised border border-outline/40 rounded-xl p-5">
+        <div class="font-code-sm text-code-sm text-emerald">outline #908fa0</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-3">Stronger focus divider</div>
+        <div class="h-12 border-t border-outline/40"></div>
+      </div>
+      <div class="bg-surface-raised border border-emerald rounded-xl p-5">
+        <div class="font-code-sm text-code-sm text-emerald">emerald #4ade80</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-3">.hover-apex border on card hover</div>
+        <div class="h-12 border-t border-emerald"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2.4 Text colors -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">2.4 — Text Colors</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-surface-raised border-apex rounded-xl p-5">
+        <div class="text-on-surface font-headline-md text-headline-md">on-surface</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#e5e1e4 · primary text on dark</div>
+      </div>
+      <div class="bg-surface-raised border-apex rounded-xl p-5">
+        <div class="text-on-surface-variant font-headline-md text-headline-md">on-surface-variant</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#c7c4d7 · muted text</div>
+      </div>
+      <div class="bg-surface-raised border-apex rounded-xl p-5">
+        <div class="text-emerald font-headline-md text-headline-md">emerald (custom)</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#4ade80 · accent + links</div>
+      </div>
+      <div class="bg-surface-raised border-apex rounded-xl p-5">
+        <div class="text-primary font-headline-md text-headline-md">primary</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">#c0c1ff · hover link alt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: Navegação e Estrutura                            -->
+<!-- ============================================================ -->
+<section id="section-3" class="doc-anchor max-w-[1440px] mx-auto px-6 py-12 border-t border-border-muted/40">
+  <div class="mb-10">
+    <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Section 3</span>
+    <h2 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Navigation &amp; Structure</h2>
+    <p class="font-body-muted text-body-muted text-on-surface-variant max-w-2xl">Every navigation pattern present in the source: top bar, filter bar, and footer link grid.</p>
+  </div>
+
+  <!-- 3.1 Top Header -->
+  <div class="mb-12">
+    <div class="mb-4 flex items-baseline justify-between">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">3.1 — Top Bar</span>
+      <span class="font-code-sm text-code-sm text-on-surface-variant/60">fixed top-0 · h-16 · z-50</span>
+    </div>
+    <div class="border-apex rounded-xl overflow-hidden">
+      <header class="w-full border-b border-outline-variant/30 bg-surface">
+        <div class="max-w-[1440px] mx-auto px-6 flex justify-between items-center h-16">
+          <div class="font-headline-md text-headline-md font-bold text-emerald">DevAuthored</div>
+          <nav class="hidden md:flex gap-8 items-center">
+            <a class="font-label-md text-label-md text-emerald border-b-2 border-emerald pb-1" href="#">Portfolio</a>
+            <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Blog</a>
+            <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">About</a>
+            <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Dashboard</a>
+          </nav>
+          <div class="flex items-center gap-4">
+            <button class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95">search</button>
+            <button class="bg-emerald text-surface px-5 py-2 rounded-lg font-label-md text-label-md cursor-pointer active:scale-95 transition-all duration-150">Hire Me</button>
+          </div>
+        </div>
+      </header>
+      <div class="bg-surface-container-low p-4">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">Logo · 4 nav links (Portfolio active = emerald + border-b-2) · icon button · primary CTA</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3.2 Filter Bar -->
+  <div class="mb-12">
+    <div class="mb-4 flex items-baseline justify-between">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">3.2 — Filter Bar</span>
+      <span class="font-code-sm text-code-sm text-on-surface-variant/60">Active = bg-emerald · Inactive = bg-surface-container-low</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <button class="px-6 py-2 rounded-lg bg-emerald text-surface font-label-sm text-label-sm font-bold border-apex border-emerald cursor-pointer transition-all">All Projects</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Web</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">AI</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Mobile</button>
+        <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Architecture</button>
+      </div>
+      <div class="font-code-sm text-code-sm text-on-surface-variant">States: default · hover (border-emerald + text-on-surface) · active (bg-emerald + text-surface + font-bold)</div>
+    </div>
+  </div>
+
+  <!-- 3.3 Footer Navigation -->
+  <div class="mb-12">
+    <div class="mb-4 flex items-baseline justify-between">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">3.3 — Footer Navigation</span>
+      <span class="font-code-sm text-code-sm text-on-surface-variant/60">3 link columns + social icons + status indicator</span>
+    </div>
+    <div class="border-apex rounded-xl overflow-hidden">
+      <div class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant/20">
+        <div class="max-w-[1440px] mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12">
+          <div class="max-w-xs">
+            <div class="font-headline-sm text-headline-sm text-on-surface font-bold mb-4">DevAuthored</div>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6">
+              Engineering precise digital artifacts through layered flatness and technical integrity.
+            </p>
+            <div class="flex gap-4">
+              <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">alternate_email</a>
+              <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">code</a>
+              <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">monitoring</a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-24">
+            <div class="flex flex-col gap-4">
+              <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Navigation</span>
+              <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Portfolio</a>
+              <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Blog</a>
+              <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+            </div>
+            <div class="flex flex-col gap-4">
+              <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Resources</span>
+              <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">RSS Feed</a>
+              <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Source Code</a>
+              <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+            </div>
+            <div class="flex flex-col gap-4">
+              <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Legal</span>
+              <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+              <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+            </div>
+          </div>
+        </div>
+        <div class="max-w-[1440px] mx-auto px-6 mt-12 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="font-body-muted text-body-muted text-on-surface-variant/60">© 2024 DevAuthored. Built for performance.</p>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+            <span class="font-code-sm text-code-sm text-on-surface-variant/60 uppercase">Operational Status: Nominal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: Componentes de UI                                 -->
+<!-- ============================================================ -->
+<section id="section-6" class="doc-anchor max-w-[1440px] mx-auto px-6 py-12 border-t border-border-muted/40">
+  <div class="mb-10">
+    <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Section 6</span>
+    <h2 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">UI Components</h2>
+    <p class="font-body-muted text-body-muted text-on-surface-variant max-w-2xl">Components actually present in the source: buttons (primary, secondary, icon-only), tags, badges, cards, and icon links.</p>
+  </div>
+
+  <!-- 6.1 Buttons -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">6.1 — Buttons</span>
+    </div>
+
+    <!-- Primary -->
+    <div class="border-apex rounded-xl p-6 mb-4">
+      <div class="mb-3 flex items-baseline justify-between">
+        <span class="font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Primary</span>
+        <span class="font-code-sm text-code-sm text-on-surface-variant/60">bg-emerald · text-surface · rounded-lg</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-6">
+        <div>
+          <button class="bg-emerald text-surface px-5 py-2 rounded-lg font-label-md text-label-md cursor-pointer active:scale-95 transition-all duration-150">Hire Me</button>
+          <div class="mt-2 font-code-sm text-code-sm text-on-surface-variant/60 text-center">default</div>
+        </div>
+        <div>
+          <button class="bg-emerald text-surface px-5 py-2 rounded-lg font-label-md text-label-md cursor-pointer scale-95">Hire Me</button>
+          <div class="mt-2 font-code-sm text-code-sm text-on-surface-variant/60 text-center">active:scale-95</div>
+        </div>
+        <div>
+          <button class="bg-emerald text-surface px-5 py-2 rounded-lg font-label-md text-label-md cursor-pointer opacity-50">Hire Me</button>
+          <div class="mt-2 font-code-sm text-code-sm text-on-surface-variant/60 text-center">disabled (50%)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary / Outline -->
+    <div class="border-apex rounded-xl p-6 mb-4">
+      <div class="mb-3 flex items-baseline justify-between">
+        <span class="font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Secondary / Outline</span>
+        <span class="font-code-sm text-code-sm text-on-surface-variant/60">bg-surface-container · border-apex · hover border-emerald</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-6">
+        <div>
+          <button class="px-8 py-3 rounded-lg bg-surface-container border-apex text-on-surface font-headline-md text-headline-md hover:border-emerald hover:text-emerald transition-all active:scale-95">Load More Projects</button>
+          <div class="mt-2 font-code-sm text-code-sm text-on-surface-variant/60 text-center">default</div>
+        </div>
+        <div>
+          <button class="px-8 py-3 rounded-lg bg-surface-container border-emerald text-emerald font-headline-md text-headline-md transition-all">Load More Projects</button>
+          <div class="mt-2 font-code-sm text-code-sm text-on-surface-variant/60 text-center">hover (border-emerald + text-emerald)</div>
+        </div>
+        <div>
+          <button class="px-8 py-3 rounded-lg bg-surface-container border-apex text-on-surface font-headline-md text-headline-md active:scale-95">Load More Projects</button>
+          <div class="mt-2 font-code-sm text-code-sm text-on-surface-variant/60 text-center">active:scale-95</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icon-only -->
+    <div class="border-apex rounded-xl p-6">
+      <div class="mb-3 flex items-baseline justify-between">
+        <span class="font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Icon-only</span>
+        <span class="font-code-sm text-code-sm text-on-surface-variant/60">material-symbols-outlined · active:scale-95</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-6">
+        <div class="flex flex-col items-center gap-2">
+          <button class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 text-3xl">search</button>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">default</div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="material-symbols-outlined text-emerald cursor-pointer text-3xl">search</span>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">hover/active (text-emerald)</div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="material-symbols-outlined text-on-surface-variant opacity-50 text-3xl">search</span>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">disabled (50%)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6.2 Tags / Badges -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">6.2 — Tags &amp; Badges</span>
+    </div>
+
+    <!-- Inline tag -->
+    <div class="border-apex rounded-xl p-6 mb-4">
+      <div class="mb-3 flex items-baseline justify-between">
+        <span class="font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Tag (inline pill)</span>
+        <span class="font-code-sm text-code-sm text-on-surface-variant/60">bg-surface-container · border-apex · font-code-sm</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">React</span>
+        <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Node.js</span>
+        <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Postgres</span>
+        <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Python</span>
+        <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">PyTorch</span>
+        <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">AWS</span>
+        <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Flutter</span>
+        <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Firebase</span>
+      </div>
+    </div>
+
+    <!-- Card overlay badge -->
+    <div class="border-apex rounded-xl p-6">
+      <div class="mb-3 flex items-baseline justify-between">
+        <span class="font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Card Overlay Badge</span>
+        <span class="font-code-sm text-code-sm text-on-surface-variant/60">absolute top-4 right-4 · bg-surface/90 · text-emerald</span>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="relative bg-surface-container-low aspect-video rounded-lg border border-border-muted overflow-hidden">
+          <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Web</div>
+          <div class="absolute bottom-3 left-3 font-code-sm text-code-sm text-on-surface-variant/60">top-4 right-4</div>
+        </div>
+        <div class="relative bg-surface-container-low aspect-video rounded-lg border border-border-muted overflow-hidden">
+          <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">AI</div>
+          <div class="absolute bottom-3 left-3 font-code-sm text-code-sm text-on-surface-variant/60">emerald text</div>
+        </div>
+        <div class="relative bg-surface-container-low aspect-video rounded-lg border border-border-muted overflow-hidden">
+          <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Mobile</div>
+          <div class="absolute bottom-3 left-3 font-code-sm text-code-sm text-on-surface-variant/60">border-apex</div>
+        </div>
+        <div class="relative bg-surface-container-low aspect-video rounded-lg border border-border-muted overflow-hidden">
+          <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Architecture</div>
+          <div class="absolute bottom-3 left-3 font-code-sm text-code-sm text-on-surface-variant/60">rounded-lg</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6.3 Icon Link -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">6.3 — Icon Link</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="mb-3 flex items-baseline justify-between">
+        <span class="font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Footer Social Icon</span>
+        <span class="font-code-sm text-code-sm text-on-surface-variant/60">text-on-surface-variant · hover:text-emerald · transition-colors</span>
+      </div>
+      <div class="flex gap-4 items-center">
+        <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors text-3xl" href="#">alternate_email</a>
+        <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors text-3xl" href="#">code</a>
+        <a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors text-3xl" href="#">monitoring</a>
+        <a class="material-symbols-outlined text-emerald transition-colors text-3xl" href="#">arrow_forward</a>
+        <span class="font-code-sm text-code-sm text-on-surface-variant/60">↑ hover each to see color transition</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6.4 Card -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">6.4 — Card</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="mb-3 flex items-baseline justify-between">
+        <span class="font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Project Card</span>
+        <span class="font-code-sm text-code-sm text-on-surface-variant/60">bg-surface-raised · border-apex · rounded-xl · hover-apex</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <div class="w-full h-full bg-surface-container flex items-center justify-center">
+              <span class="font-code-sm text-code-sm text-on-surface-variant/40">image area</span>
+            </div>
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Web</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Card Title</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              Card description uses body-muted with line-clamp-2 to keep consistent height across grid.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Tag-1</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Tag-2</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Tag-3</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+              View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <div class="w-full h-full bg-surface-container flex items-center justify-center">
+              <span class="font-code-sm text-code-sm text-on-surface-variant/40">image area</span>
+            </div>
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">AI</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Card Title</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              Hover the card to see the border turn emerald, the image scale up, the title turn emerald, and the arrow gap widen.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Tag-1</span>
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Tag-2</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+              View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <div class="w-full h-full bg-surface-container flex items-center justify-center">
+              <span class="font-code-sm text-code-sm text-on-surface-variant/40">image area</span>
+            </div>
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Mobile</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Card Title</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+              The card pattern with all hover interactions documented in the Motion section.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Tag-1</span>
+            </div>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+              View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: Layout e Espaçamento                              -->
+<!-- ============================================================ -->
+<section id="section-7" class="doc-anchor max-w-[1440px] mx-auto px-6 py-12 border-t border-border-muted/40">
+  <div class="mb-10">
+    <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Section 7</span>
+    <h2 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Layout &amp; Spacing</h2>
+    <p class="font-body-muted text-body-muted text-on-surface-variant max-w-2xl">Container widths, grid systems, section rhythm, and the three primary layout patterns used in the source.</p>
+  </div>
+
+  <!-- 7.1 Container -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">7.1 — Container</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="bg-surface-container rounded-lg p-4 mb-4">
+        <div class="font-code-sm text-code-sm text-emerald">max-w-[1440px] mx-auto px-6</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">applied to header inner div, main, footer inner divs</div>
+      </div>
+      <div class="border border-dashed border-emerald rounded-lg p-6 bg-surface-raised">
+        <div class="font-code-sm text-code-sm text-emerald mb-2">1440px container, centered, 24px horizontal padding</div>
+        <div class="font-body-muted text-body-muted text-on-surface-variant">The dashed emerald line shows the container bounds. Content lives inside, padded 24px from the edge.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7.2 Grid -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">7.2 — Card Grid</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="bg-surface-container rounded-lg p-4 mb-4">
+        <div class="font-code-sm text-code-sm text-emerald">grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60">1 column mobile · 2 columns tablet · 3 columns desktop · 24px gutter</div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="aspect-video bg-surface-raised border-apex rounded-xl flex items-center justify-center">
+          <span class="font-code-sm text-code-sm text-on-surface-variant">01</span>
+        </div>
+        <div class="aspect-video bg-surface-raised border-apex rounded-xl flex items-center justify-center">
+          <span class="font-code-sm text-code-sm text-on-surface-variant">02</span>
+        </div>
+        <div class="aspect-video bg-surface-raised border-apex rounded-xl flex items-center justify-center">
+          <span class="font-code-sm text-code-sm text-on-surface-variant">03</span>
+        </div>
+        <div class="aspect-video bg-surface-raised border-apex rounded-xl flex items-center justify-center">
+          <span class="font-code-sm text-code-sm text-on-surface-variant">04</span>
+        </div>
+        <div class="aspect-video bg-surface-raised border-apex rounded-xl flex items-center justify-center">
+          <span class="font-code-sm text-code-sm text-on-surface-variant">05</span>
+        </div>
+        <div class="aspect-video bg-surface-raised border-apex rounded-xl flex items-center justify-center">
+          <span class="font-code-sm text-code-sm text-on-surface-variant">06</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7.3 Section rhythm -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">7.3 — Section Rhythm</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="space-y-4">
+        <div class="flex items-center gap-4">
+          <div class="font-code-sm text-code-sm text-emerald w-32">mb-16</div>
+          <div class="h-2 bg-emerald rounded w-16"></div>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">64px — Hero → Filter</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="font-code-sm text-code-sm text-emerald w-32">mb-10</div>
+          <div class="h-2 bg-emerald rounded w-10"></div>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">40px — Filter → Grid</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="font-code-sm text-code-sm text-emerald w-32">mt-16</div>
+          <div class="h-2 bg-emerald rounded w-16"></div>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">64px — Grid → Load More</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="font-code-sm text-code-sm text-emerald w-32">gap-6</div>
+          <div class="h-2 bg-emerald rounded w-6"></div>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">24px — Card grid gutter</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="font-code-sm text-code-sm text-emerald w-32">mb-6</div>
+          <div class="h-2 bg-emerald rounded w-6"></div>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">24px — Inside card</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="font-code-sm text-code-sm text-emerald w-32">gap-2</div>
+          <div class="h-2 bg-emerald rounded w-2"></div>
+          <div class="font-code-sm text-code-sm text-on-surface-variant/60">8px — Tag pill row</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7.4 Hero pattern -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">7.4 — Hero Pattern</span>
+    </div>
+    <div class="border-apex rounded-xl overflow-hidden">
+      <div class="p-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="max-w-2xl">
+            <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Eyebrow</span>
+            <h1 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Hero Title with md override</h1>
+            <p class="font-body-base text-body-base text-on-surface-variant max-w-lg">Body-base intro paragraph constrained to max-w-lg to maintain readable line length.</p>
+          </div>
+          <div class="hidden lg:flex gap-12 border-l border-border-muted pl-12 h-fit mb-2">
+            <div>
+              <div class="font-headline-md text-headline-md text-emerald">42+</div>
+              <div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Stat Label</div>
+            </div>
+            <div>
+              <div class="font-headline-md text-headline-md text-emerald">08</div>
+              <div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Stat Label</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-surface-container-low p-4 border-t border-border-muted/40">
+        <div class="font-code-sm text-code-sm text-on-surface-variant">flex flex-col md:flex-row md:items-end justify-between gap-6 · border-l border-border-muted pl-12 h-fit on stats</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7.5 Footer pattern -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">7.5 — Footer Pattern</span>
+    </div>
+    <div class="border-apex rounded-xl overflow-hidden">
+      <div class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant/20">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+          <div class="max-w-xs">
+            <div class="font-headline-sm text-headline-sm text-on-surface font-bold mb-4">Brand</div>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6">Short brand statement paragraph constrained to max-w-xs.</p>
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-on-surface-variant">alternate_email</span>
+              <span class="material-symbols-outlined text-on-surface-variant">code</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-24">
+            <div class="flex flex-col gap-4">
+              <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Column 1</span>
+              <a class="font-body-muted text-body-muted text-on-surface-variant" href="#">Link 1</a>
+              <a class="font-body-muted text-body-muted text-on-surface-variant" href="#">Link 2</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: Motion e Interação                                -->
+<!-- ============================================================ -->
+<section id="section-8" class="doc-anchor max-w-[1440px] mx-auto px-6 py-12 border-t border-border-muted/40">
+  <div class="mb-10">
+    <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Section 8</span>
+    <h2 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Motion &amp; Interaction</h2>
+    <p class="font-body-muted text-body-muted text-on-surface-variant max-w-2xl">Every transition, hover, and active state from the source — plus the two JavaScript micro-interactions (filter toggle + header scroll).</p>
+  </div>
+
+  <!-- 8.1 Transitions -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">8.1 — Transitions</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="border-apex rounded-xl p-6">
+        <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">transition-all duration-150</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Hire Me button</div>
+        <button class="bg-emerald text-surface px-5 py-2 rounded-lg font-label-md text-label-md cursor-pointer active:scale-95 transition-all duration-150 hover:opacity-90">Hire Me</button>
+      </div>
+      <div class="border-apex rounded-xl p-6">
+        <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">transition-all duration-300</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Card container</div>
+        <div class="bg-surface-raised border-apex rounded-xl p-4 transition-all duration-300 hover:border-emerald cursor-pointer">
+          <div class="font-label-sm text-label-sm">Hover me (300ms)</div>
+        </div>
+      </div>
+      <div class="border-apex rounded-xl p-6">
+        <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">transition-transform duration-500</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Card image zoom</div>
+        <div class="bg-surface-raised border-apex rounded-xl overflow-hidden group cursor-pointer">
+          <div class="aspect-video bg-surface-container flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+            <span class="font-code-sm text-code-sm text-on-surface-variant/40">image area</span>
+          </div>
+        </div>
+      </div>
+      <div class="border-apex rounded-xl p-6">
+        <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">transition-colors</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Nav links + icon links</div>
+        <div class="flex flex-col gap-3">
+          <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer w-fit">Hover this link (text-on-surface)</a>
+          <a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit">Hover this link (text-primary)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8.2 Active / Press states -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">8.2 — Active / Press States</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">active:scale-95</div>
+      <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Applied to Hire Me, Load More, and the search icon. Click and hold to feel the compression.</div>
+      <div class="flex flex-wrap items-center gap-6">
+        <button class="bg-emerald text-surface px-5 py-2 rounded-lg font-label-md text-label-md cursor-pointer active:scale-95 transition-all duration-150">Hire Me</button>
+        <button class="px-8 py-3 rounded-lg bg-surface-container border-apex text-on-surface font-headline-md text-headline-md hover:border-emerald hover:text-emerald transition-all active:scale-95">Load More</button>
+        <button class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 text-3xl">search</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8.3 Group hover choreography -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">8.3 — Group Hover Choreography</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Card hover cascade</div>
+      <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Hover the card. Border turns emerald (300ms), image zooms 1.05 (500ms), title turns emerald, link arrow gap widens from 8px to 12px.</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+          <div class="relative aspect-video overflow-hidden border-b border-border-muted">
+            <div class="w-full h-full bg-surface-container flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+              <span class="font-code-sm text-code-sm text-on-surface-variant/40">image area</span>
+            </div>
+            <div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Demo</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Hover the card</h3>
+            <p class="font-body-muted text-body-muted text-on-surface-variant mb-6">Watch the border, image, title, and arrow respond together.</p>
+            <a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+              View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8.4 Keyframe animation -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">8.4 — Keyframe Animation</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">animate-pulse</div>
+      <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">The only keyframe in the source: 2px status dot in the footer. w-2 h-2 rounded-full bg-emerald animate-pulse.</div>
+      <div class="flex items-center gap-3 p-4 bg-surface-raised border-apex rounded-lg">
+        <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+        <span class="font-code-sm text-code-sm text-on-surface-variant uppercase">Operational Status: Nominal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8.5 JavaScript micro-interactions -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">8.5 — JavaScript Micro-Interactions</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Filter toggle (live, scoped to .app-shell) -->
+      <div class="border-apex rounded-xl p-6">
+        <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Filter Toggle (active state)</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Click any button below. Active classes toggle: bg-emerald, text-surface, border-emerald, font-bold.</div>
+        <div class="demo-filter flex flex-wrap items-center gap-3">
+          <button class="px-6 py-2 rounded-lg bg-emerald text-surface font-label-sm text-label-sm font-bold border-apex border-emerald cursor-pointer transition-all">All</button>
+          <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Web</button>
+          <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">AI</button>
+          <button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Mobile</button>
+        </div>
+      </div>
+      <!-- Header scroll (live) -->
+      <div class="border-apex rounded-xl p-6">
+        <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Header Scroll Effect</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Scroll the page. The original header adds <code class="font-code-sm text-code-sm text-emerald">shadow-sm</code> and shifts its background to <code class="font-code-sm text-code-sm text-emerald">rgba(9,9,11,0.95)</code> after 20px of scroll.</div>
+        <div class="flex items-center gap-2 p-3 bg-surface-raised border-apex rounded-lg">
+          <span class="material-symbols-outlined text-on-surface-variant">arrow_upward</span>
+          <span class="font-code-sm text-code-sm text-on-surface-variant">Scroll up &amp; down to observe.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 9: Ícones                                             -->
+<!-- ============================================================ -->
+<section id="section-9" class="doc-anchor max-w-[1440px] mx-auto px-6 py-12 border-t border-border-muted/40">
+  <div class="mb-10">
+    <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Section 9</span>
+    <h2 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Icons</h2>
+    <p class="font-body-muted text-body-muted text-on-surface-variant max-w-2xl">System: <code class="font-code-sm text-code-sm text-emerald">Material Symbols Outlined</code> (Google Fonts). Inherits color from the parent. Variable font, supports FILL/wght/GRAD/opsz axes.</p>
+  </div>
+
+  <!-- 9.1 All icons used -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">9.1 — Icons used in the source</span>
+    </div>
+    <div class="border-apex rounded-xl p-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="flex flex-col items-center gap-2 p-4 bg-surface-raised border-apex rounded-lg">
+          <span class="material-symbols-outlined text-on-surface text-4xl">search</span>
+          <span class="font-code-sm text-code-sm text-on-surface-variant">search</span>
+        </div>
+        <div class="flex flex-col items-center gap-2 p-4 bg-surface-raised border-apex rounded-lg">
+          <span class="material-symbols-outlined text-on-surface text-4xl">arrow_forward</span>
+          <span class="font-code-sm text-code-sm text-on-surface-variant">arrow_forward</span>
+        </div>
+        <div class="flex flex-col items-center gap-2 p-4 bg-surface-raised border-apex rounded-lg">
+          <span class="material-symbols-outlined text-on-surface text-4xl">alternate_email</span>
+          <span class="font-code-sm text-code-sm text-on-surface-variant">alternate_email</span>
+        </div>
+        <div class="flex flex-col items-center gap-2 p-4 bg-surface-raised border-apex rounded-lg">
+          <span class="material-symbols-outlined text-on-surface text-4xl">code</span>
+          <span class="font-code-sm text-code-sm text-on-surface-variant">code</span>
+        </div>
+        <div class="flex flex-col items-center gap-2 p-4 bg-surface-raised border-apex rounded-lg">
+          <span class="material-symbols-outlined text-on-surface text-4xl">monitoring</span>
+          <span class="font-code-sm text-code-sm text-on-surface-variant">monitoring</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9.2 Size & color -->
+  <div class="mb-12">
+    <div class="mb-4">
+      <span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest">9.2 — Size &amp; Color Inheritance</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="border-apex rounded-xl p-6">
+        <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Sizes</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Default 24px (font-size). Inline uses text-[18px]. The image icon shown is text-3xl (30px).</div>
+        <div class="flex items-end gap-6">
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-on-surface text-[18px]">search</span>
+            <span class="font-code-sm text-code-sm text-on-surface-variant/60">18px</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-on-surface">search</span>
+            <span class="font-code-sm text-code-sm text-on-surface-variant/60">24px (default)</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-on-surface text-3xl">search</span>
+            <span class="font-code-sm text-code-sm text-on-surface-variant/60">30px (text-3xl)</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-on-surface text-3xl">search</span>
+            <span class="font-code-sm text-code-sm text-on-surface-variant/60">64px</span>
+          </div>
+        </div>
+      </div>
+      <div class="border-apex rounded-xl p-6">
+        <div class="mb-3 font-label-sm text-label-sm text-emerald uppercase tracking-widest font-bold">Color Inheritance</div>
+        <div class="font-code-sm text-code-sm text-on-surface-variant/60 mb-4">Icons use <code class="font-code-sm text-code-sm text-emerald">currentColor</code> and inherit from text-* classes. No fill override needed for outlined style.</div>
+        <div class="flex items-center gap-6">
+          <span class="material-symbols-outlined text-on-surface text-3xl">code</span>
+          <span class="material-symbols-outlined text-on-surface-variant text-3xl">code</span>
+          <span class="material-symbols-outlined text-emerald text-3xl">code</span>
+          <span class="material-symbols-outlined text-primary text-3xl">code</span>
+          <span class="material-symbols-outlined text-error text-3xl">code</span>
+        </div>
+        <div class="mt-4 grid grid-cols-5 gap-2 font-code-sm text-code-sm text-on-surface-variant/60 text-center">
+          <span>on-surface</span>
+          <span>on-surface-variant</span>
+          <span>emerald</span>
+          <span>primary</span>
+          <span>error</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Closing footer -->
+<footer class="border-t border-border-muted/40 mt-12">
+  <div class="max-w-[1440px] mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start gap-6">
+    <div>
+      <div class="font-headline-md text-headline-md text-emerald font-bold mb-2">Design System</div>
+      <p class="font-body-muted text-body-muted text-on-surface-variant max-w-md">Every token, component, and motion primitive extracted from the source. Same classes, same timing, same behavior.</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+      <span class="font-code-sm text-code-sm text-on-surface-variant/60 uppercase">Documentation: Nominal</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+        // Mirrored from source, scoped to the cloned app shell inside Section 0
+        (function() {
+          const shell = document.querySelector('.app-shell');
+          if (!shell) return;
+          const header = document.querySelector('header');
+          if (!header) return;
+
+          // Micro-interaction: Active category filter (scoped to .app-shell)
+          const filterButtons = shell.querySelectorAll('section:nth-of-type(2) button');
+          filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+              filterButtons.forEach(b => {
+                b.classList.remove('bg-emerald', 'text-surface', 'border-emerald', 'font-bold');
+                b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+              });
+              btn.classList.add('bg-emerald', 'text-surface', 'border-emerald', 'font-bold');
+              btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+            });
+          });
+
+          // Micro-interaction: Header scroll effect
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+              header.classList.add('shadow-sm');
+              header.style.backgroundColor = 'rgba(9, 9, 11, 0.95)';
+            } else {
+              header.classList.remove('shadow-sm');
+              header.style.backgroundColor = 'rgba(9, 9, 11, 0.8)';
+            }
+          });
+        })();
+
+        // Section 8.5 — live filter toggle for the demo buttons
+        (function() {
+          const demoButtons = document.querySelectorAll('.demo-filter button');
+          if (demoButtons.length === 0) return;
+          demoButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+              demoButtons.forEach(b => {
+                b.classList.remove('bg-emerald', 'text-surface', 'border-emerald', 'font-bold');
+                b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+              });
+              btn.classList.add('bg-emerald', 'text-surface', 'border-emerald', 'font-bold');
+              btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+            });
+          });
+        })();
+    </script>
+</body>
+</html>

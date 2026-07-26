@@ -1,0 +1,390 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Portfolio Gallery | DevAuthored</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;900&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#07006c",
+                      "surface-container-lowest": "#0e0e10",
+                      "surface-tint": "#c0c1ff",
+                      "outline": "#908fa0",
+                      "on-tertiary-container": "#1f2a3c",
+                      "tertiary": "#bcc7de",
+                      "surface-bright": "#39393b",
+                      "on-background": "#e5e1e4",
+                      "on-secondary": "#233143",
+                      "secondary-fixed-dim": "#b9c8de",
+                      "warning": "#fbbf24",
+                      "surface": "#09090b",
+                      "on-secondary-container": "#a7b6cc",
+                      "secondary-fixed": "#d4e4fa",
+                      "outline-variant": "#464554",
+                      "tertiary-fixed": "#d8e3fb",
+                      "secondary-container": "#39485a",
+                      "on-secondary-fixed": "#0d1c2d",
+                      "surface-dim": "#131315",
+                      "on-error-container": "#ffdad6",
+                      "surface-overlay": "#1c1c1f",
+                      "primary": "#c0c1ff",
+                      "on-tertiary-fixed-variant": "#3c475a",
+                      "surface-container-low": "#1c1b1d",
+                      "surface-variant": "#353437",
+                      "on-surface-variant": "#c7c4d7",
+                      "background": "#131315",
+                      "on-primary-container": "#0d0096",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#313032",
+                      "error": "#f87171",
+                      "tertiary-container": "#8691a7",
+                      "on-secondary-fixed-variant": "#39485a",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "indigo-accent": "#6366f1",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "primary-fixed": "#e1e0ff",
+                      "on-tertiary": "#263143",
+                      "inverse-primary": "#494bd6",
+                      "on-tertiary-fixed": "#111c2d",
+                      "surface-container-highest": "#353437",
+                      "border-muted": "#27272a",
+                      "surface-container": "#201f22",
+                      "secondary": "#b9c8de",
+                      "tertiary-fixed-dim": "#bcc7de",
+                      "on-surface": "#e5e1e4",
+                      "inverse-surface": "#e5e1e4",
+                      "on-primary": "#1000a9",
+                      "primary-container": "#8083ff",
+                      "success": "#4ade80",
+                      "on-error": "#690005",
+                      "surface-raised": "#121214",
+                      "surface-container-high": "#2a2a2c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "8px",
+                      "xl": "12px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-padding-desktop": "1.5rem",
+                      "base": "4px",
+                      "stack-sm": "0.5rem",
+                      "stack-md": "1rem",
+                      "gutter": "1rem",
+                      "card-gap": "1rem",
+                      "container-padding-mobile": "1rem"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "code-sm": ["JetBrains Mono"],
+                      "body-muted": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-base": ["Inter"],
+                      "label-xs": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "code-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-muted": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "label-xs": ["11px", {"lineHeight": "14px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #09090b;
+            color: #e5e1e4;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .border-apex {
+            border: 1px solid #27272a;
+        }
+        .hover-apex:hover {
+            border-color: #4ade80; /* Emerald accent */
+        }
+        .text-emerald {
+            color: #4ade80;
+        }
+        .bg-emerald {
+            background-color: #4ade80;
+        }
+        .nav-blur {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant/30 bg-surface">
+<div class="max-w-[1440px] mx-auto px-6 flex justify-between items-center h-16">
+<div class="font-headline-md text-headline-md font-bold text-emerald">DevAuthored</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-emerald border-b-2 border-emerald pb-1" href="#">Portfolio</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Dashboard</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95">search</button>
+<button class="bg-emerald text-surface px-5 py-2 rounded-lg font-label-md text-label-md cursor-pointer active:scale-95 transition-all duration-150">Hire Me</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 max-w-[1440px] mx-auto px-6">
+<!-- Hero Section -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<span class="text-emerald font-code-sm text-code-sm uppercase tracking-widest mb-2 block">Recent Artifacts</span>
+<h1 class="font-headline-lg text-headline-lg md:text-[48px] md:leading-[56px] mb-4">Engineering high-performance digital experiences.</h1>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-lg">
+                        A curated gallery of web architectures, machine learning models, and mobile interfaces built with a focus on geometric precision and technical clarity.
+                    </p>
+</div>
+<!-- Mini Stats / Asymmetric Layout Element -->
+<div class="hidden lg:flex gap-12 border-l border-border-muted pl-12 h-fit mb-2">
+<div>
+<div class="font-headline-md text-headline-md text-emerald">42+</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Projects Completed</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-emerald">08</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Open Source</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="mb-10 flex flex-wrap items-center gap-3">
+<button class="px-6 py-2 rounded-lg bg-emerald text-surface font-label-sm text-label-sm font-bold border-apex border-emerald cursor-pointer transition-all">All Projects</button>
+<button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Web</button>
+<button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">AI</button>
+<button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Mobile</button>
+<button class="px-6 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-apex hover:border-emerald hover:text-on-surface cursor-pointer transition-all">Architecture</button>
+</section>
+<!-- Project Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+<div class="relative aspect-video overflow-hidden border-b border-border-muted">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, professional UI screenshot of a high-performance analytics dashboard for a financial platform. The design features a dark-themed interface with sharp 1px borders, emerald green accent charts, and precise typographic alignment. The atmosphere is technical and authoritative, showcasing data density and architectural stability in a modern corporate SaaS style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBtnhK5QNZ77W_fB0C1bazhFEt_DM89vJ3YRcVX_PgVoX3VoEIPuVRkNR6QjcQgmBOyJ0yJC71jSeYctrCf8lvCL-VExr1kjkrBSMB2GBy6RFrThHxrZu2YaL2r0r_d3ZZJ4AsgrN-WH3M11oAhcRa9rIRUFdoszD5Ri_C2vYLucz7BkZFIfLMEGpBuhsQxht5YILv6drC1H9MmNcu7DDmHSLJ7__ZH0AGyXN01o4IYxIHjYivouyGTIxd5C3tshyDkegs3clS_UY">
+<div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Web Architecture</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Nexus Core CRM</h3>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+                        A full-stack enterprise resource planning system with real-time synchronization and modular architecture.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">React</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Node.js</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Postgres</span>
+</div>
+<a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+                        View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+<div class="relative aspect-video overflow-hidden border-b border-border-muted">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A futuristic AI model visualization showing a neural network structure in a dark, minimalist setting. The nodes glow with subtle emerald green light, connected by sharp, thin white lines representing data flow. The composition is clean and geometric, emphasizing technical precision and advanced computation within a dark mode professional environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8oUxyk3isG4Gro7ZNF9fR092M2oPjFJrAvXLHomKNNOUcsqKjLhaRK_TLgc65MSmC_flxqm_2lY01T_pUeDa7iFT7RrQk-aGO2LnovSj0B1tJvBbxpmCiyxaeqeNC-kTQl6VaTkynMaASFRRdOVrXKJD2A1aohfsSjwAxXfRpSK0xz-g6KZkBhMe2MPVbOlZZ7Ph2sWNU77yGVpHGPnES7CZjUEheltBT1LZDPL35gXkcFYCXA7srD2DT1-mTDakTzNPqP6VoVL4">
+<div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Machine Learning</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Sentiment Engine V4</h3>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+                        Advanced NLP processor for financial market sentiment analysis using custom transformer models.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Python</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">PyTorch</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">AWS</span>
+</div>
+<a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+                        View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+<div class="relative aspect-video overflow-hidden border-b border-border-muted">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek mobile application interface for a luxury task management tool. The screen shows a dark mode aesthetic with high contrast white text, emerald green progress bars, and a 12-column fluid grid layout. The visual style is layered flatness, featuring crisp 1px borders and functional indigo accents on primary action buttons." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX2qgPy1BmTq6XihaoJy76lupfIepi7iIkwSO-3nrt2xr25uEagnGJjSi9_6QE2MYFRz0LIXEOg-R6loSiLFJW7v68cI9HwZjhf98uiSpdfLd24ThMdvrLM-HDBAQj3qvgSOydTo3CaxfUeBGZwYcoCD2qIHS7CqPFhe3gHl-oNVkrcjdqbu91ND397LwDYgRO8eElbItVUq70RJRCgDkfpjsn4beechhw748mBavwqjUh0m3KI6XT8vj2kW1OeAlyR-K8bdEYkSE">
+<div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Mobile</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Astra Planner App</h3>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+                        Cross-platform productivity tool for high-density workflow management and task automation.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Flutter</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Firebase</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Go</span>
+</div>
+<a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+                        View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+<div class="relative aspect-video overflow-hidden border-b border-border-muted">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An intricate architectural diagram of a cloud computing network. The visualization uses a slate and zinc color palette with neon emerald green highlights for data pathways. The layout is strictly geometric, following a 4px base rhythm, and portrays complex microservices orchestration in a clean, technical, and architectural drawing style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeCgSpRsEfpJ1Gy_RneQ3fNiB8_cYk7VrsSOe4IlIXgZE6Txlvowh_0hUXZIgpyJds2bnxlyRbxULfKHiJFIQf003X2KgUnqYBzs16dCOgWduJk_tBbafrom4NiZ1VrKbNjjOiq5Xf2g1qkwIZPgXoKD1htINz_zeDfvQb3af47E8tEDy12aaXvFy6JWKs2Ts1HoYVrPo87TH7TOhjjceHg6L2JlrAb-wk5Mbp9VdpE5TxYD2NjfWSycr0INeCjAW8SXdECNrFjyw">
+<div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Architecture</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Hybrid Cloud Mesh</h3>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+                        Scalable infrastructure design for high-traffic e-commerce platform using Kubernetes clusters.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Terraform</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">GCP</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Docker</span>
+</div>
+<a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+                        View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+<div class="relative aspect-video overflow-hidden border-b border-border-muted">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional web design for a modern developer portfolio. The interface uses a deep black background with solid slate panels and 1px borders. Typography is sharp and readable, utilizing the Hanken Grotesk font. The mood is minimalist and technical, with carefully placed indigo accent buttons and emerald green highlights for interactive elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtEGj_gqfxgymOXskIu3dkH9X2a35cLnGNG4EmTTUw0gfIJ27ovTATd60GmMQjCKJxETrGrcUfNZlCdlXalKqfTew3a2OTn78ADinOlzX__z7QczPvYDF_ItVaeNNximXnYCuRtsuDNnWikeuU9SQtxmsXbrjtt0Mkh9EY_ZdjPLul3pR5bUuc7wNHERvoxj7O5ZhiT-dvonm8MEYcyQbX0zBpi4Mw1HSmWmlDkhkVh5NP5k1fW07QSuT9SNCIUPv8arxCIBK_NTU">
+<div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Web Architecture</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">Pulse CMS</h3>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+                        Headless content management system optimized for static site generation and developer experience.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Next.js</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">GraphQL</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Vercel</span>
+</div>
+<a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+                        View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-surface-raised border-apex rounded-xl overflow-hidden hover-apex transition-all duration-300">
+<div class="relative aspect-video overflow-hidden border-b border-border-muted">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, data-heavy tablet interface for an industrial IoT monitoring system. The UI displays complex real-time graphs and hardware status indicators in a dark mode professional aesthetic. Layout is high-density with 1px borders separating modules, utilizing a vibrant indigo and emerald green color palette for clear status differentiation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXjjC8qYbEDjzw30PJNBa5Ebx9hPrCQ0ZVI4cR_cQGqSotZV8CKkbv4BBY1AaZHIIyO3WsYqkcdPOOmfjyTSN_pn04jqfc0KZ1NDR3JhP_IxeGx-6mUzUZ-V-bB146Rl3qAwntEkoOqJ9sVjgTZH7Q-W7_OpYbVF8snfY20LcxGb9CmkhWQqJOhA0a2nHDXYjZMCU9gEheKfuho2cqqTkEEjjvcV-vxBJHm9O9b1_NXn7iiQaL-ZPuunx3ZWkwXbN4IYzAYg3I860">
+<div class="absolute top-4 right-4 bg-surface/90 px-3 py-1 rounded-lg border-apex text-emerald font-code-sm text-code-sm">Mobile</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-emerald transition-colors">FieldForce Admin</h3>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-6 line-clamp-2">
+                        Tablet-first administrative dashboard for managing decentralized field operations and logistics.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">React Native</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">Redux</span>
+<span class="px-2 py-1 bg-surface-container rounded-lg border-apex text-on-surface-variant font-code-sm text-code-sm">SQLite</span>
+</div>
+<a class="inline-flex items-center gap-2 text-emerald font-label-sm text-label-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all" href="#">
+                        View Case Study <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Pagination / Load More -->
+<section class="mt-16 flex flex-col items-center gap-4">
+<button class="px-8 py-3 rounded-lg bg-surface-container border-apex text-on-surface font-headline-md text-headline-md hover:border-emerald hover:text-emerald transition-all active:scale-95">
+                Load More Projects
+            </button>
+<p class="font-body-muted text-body-muted text-on-surface-variant">Showing 6 of 24 artifacts</p>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-[1440px] mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-xs">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold mb-4">DevAuthored</div>
+<p class="font-body-muted text-body-muted text-on-surface-variant mb-6">
+                    Engineering precise digital artifacts through layered flatness and technical integrity.
+                </p>
+<div class="flex gap-4">
+<a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">alternate_email</a>
+<a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">code</a>
+<a class="material-symbols-outlined text-on-surface-variant hover:text-emerald transition-colors" href="#">monitoring</a>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-24">
+<div class="flex flex-col gap-4">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Navigation</span>
+<a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Portfolio</a>
+<a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Blog</a>
+<a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Resources</span>
+<a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">RSS Feed</a>
+<a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Source Code</a>
+<a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest font-bold">Legal</span>
+<a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-body-muted text-body-muted text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-6 mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-muted text-body-muted text-on-surface-variant/60">© 2024 DevAuthored. Built for performance.</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-on-surface-variant/60 uppercase">Operational Status: Nominal</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Active category filter
+        const filterButtons = document.querySelectorAll('section:nth-of-type(2) button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-emerald', 'text-surface', 'border-emerald', 'font-bold');
+                    b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+                });
+                btn.classList.add('bg-emerald', 'text-surface', 'border-emerald', 'font-bold');
+                btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+            });
+        });
+
+        // Micro-interaction: Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-sm');
+                header.style.backgroundColor = 'rgba(9, 9, 11, 0.95)';
+            } else {
+                header.classList.remove('shadow-sm');
+                header.style.backgroundColor = 'rgba(9, 9, 11, 0.8)';
+            }
+        });
+    </script>
+
+
+</body></html>
