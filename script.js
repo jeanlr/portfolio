@@ -1,103 +1,40 @@
-/* ==========================================================================
-   script.js — interatividade do portfólio
-   ========================================================================== */
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();
 
-// -------------------------------------------------------------------------
-// Ano dinâmico no footer
-// -------------------------------------------------------------------------
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+const toggle = document.getElementById('menu-toggle');
+const navigation = document.getElementById('navigation');
 
-// -------------------------------------------------------------------------
-// Badges de tecnologia — renderizados a partir de TECHNOLOGIES
-// -------------------------------------------------------------------------
-const TECHNOLOGIES = [
-  'python', 'sql', 'pyspark', 'book-de-vars', 'scikit-learn',
-  'machine-learning', 'classificacao', 'clustering', 'regressao'
-];
+if (toggle && navigation) {
+  const mobile = window.matchMedia('(max-width: 700px)');
 
-const badgeGrid = document.getElementById('badge-grid');
-if (badgeGrid) {
-  const fragment = document.createDocumentFragment();
-  TECHNOLOGIES.forEach((tech) => {
-    const li = document.createElement('li');
-    li.className = 'tag';
-    const dot = document.createElement('span');
-    dot.className = 'footer__status-dot';
-    dot.setAttribute('aria-hidden', 'true');
-    li.appendChild(dot);
-    li.append(tech);
-    fragment.appendChild(li);
-  });
-  badgeGrid.appendChild(fragment);
-}
-
-// -------------------------------------------------------------------------
-// Scroll reveal — fade-in / slide-up via IntersectionObserver
-// -------------------------------------------------------------------------
-const revealTargets = document.querySelectorAll('.reveal');
-
-if ('IntersectionObserver' in window && revealTargets.length) {
-  document.documentElement.classList.add('js-reveal');
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  revealTargets.forEach((el) => observer.observe(el));
-
-  // Cards de projeto recebem delay escalonado
-  document.querySelectorAll('.card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 80}ms`;
-  });
-
-  // Fallback de segurança: garante que nada fique preso em opacity 0
-  setTimeout(() => {
-    document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => {
-      el.classList.add('is-visible');
-    });
-  }, 1500);
-} else {
-  revealTargets.forEach((el) => el.classList.add('is-visible'));
-}
-
-// -------------------------------------------------------------------------
-// Navbar: menu mobile
-// -------------------------------------------------------------------------
-const navbarMenu = document.getElementById('navbar-menu');
-const navbarNav = document.getElementById('navbar-nav');
-
-if (navbarMenu && navbarNav) {
-  const toggleMenu = () => {
-    const isOpen = navbarNav.classList.toggle('is-open');
-    navbarMenu.setAttribute('aria-expanded', String(isOpen));
+  const closeMenu = (restoreFocus = false) => {
+    navigation.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    if (restoreFocus) toggle.focus();
   };
 
-  navbarMenu.addEventListener('click', toggleMenu);
+  toggle.addEventListener('click', () => {
+    const open = navigation.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
 
-  navbarNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navbarNav.classList.remove('is-open');
-      navbarMenu.setAttribute('aria-expanded', 'false');
-    });
+  navigation.addEventListener('click', (event) => {
+    if (event.target.closest('a')) closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navigation.classList.contains('is-open')) closeMenu(true);
   });
 
   document.addEventListener('click', (event) => {
-    if (
-      navbarNav.classList.contains('is-open') &&
-      !navbarNav.contains(event.target) &&
-      !navbarMenu.contains(event.target)
-    ) {
-      navbarNav.classList.remove('is-open');
-      navbarMenu.setAttribute('aria-expanded', 'false');
-    }
+    if (!navigation.contains(event.target) && !toggle.contains(event.target)) closeMenu();
   });
+
+  navigation.addEventListener('focusout', (event) => {
+    if (!navigation.contains(event.relatedTarget) && !toggle.contains(event.relatedTarget)) closeMenu();
+  });
+
+  mobile.addEventListener('change', () => closeMenu());
+  toggle.hidden = false;
+  document.documentElement.classList.add('js');
 }
